@@ -14,7 +14,10 @@ export class MyCard extends LitElement {
 
   constructor() {
     super();
-    this.title = "My card";
+    this.title = "Put Title";
+    this.imageURL = "https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg";
+    this.description = "This is an image of the American flag";
+    this.buttonLink = "https://www.hax.psu.edu";
   }
 
   static get styles() {
@@ -54,10 +57,10 @@ button {
     <div>${this.title}</div>
     
   <div class="wrapper">
-      <h1 class="cardTitle">USA</h1>
-      <img src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg" class="image">
-      <h4>This is an image of the American flag</h4>
-      <button> <a href="https://hax.psu.edu"> Details </a></button>
+      <h1 class="cardTitle">${this.title}</h1>
+      <img src="${this.imageURL}" class="image">
+      <h4>${this.description}</h4>
+      <button> <a href="${this.buttonLink}"> Details </a></button>
   </div>
 
     `;
@@ -66,6 +69,10 @@ button {
   static get properties() {
     return {
       title: { type: String },
+      imageURL: { type: String },
+      description: { type: String },
+      buttonLink: { type: String },
+      
     };
   }
 }
