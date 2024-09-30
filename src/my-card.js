@@ -18,6 +18,7 @@ export class MyCard extends LitElement {
     this.imageURL = "https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg";
     this.description = "This is an image of the American flag";
     this.buttonLink = "https://www.hax.psu.edu";
+    this.fancy = false;
   }
 
   static get styles() {
@@ -51,6 +52,15 @@ button {
     `;
   }
 
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    } else {
+      this.fancy = false;
+    }
+  }
+
   render() {
     return html`
     
@@ -59,7 +69,12 @@ button {
   <div class="wrapper">
       <h1 class="cardTitle">${this.title}</h1>
       <img src="${this.imageURL}" class="image">
-      <h4>${this.description}</h4>
+      <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+        <summary>Description</summary>
+        <div>
+          <slot>${this.description}</slot>
+        </div>
+      </details>
       <button> <a href="${this.buttonLink}"> Details </a></button>
   </div>
 
@@ -72,7 +87,8 @@ button {
       imageURL: { type: String },
       description: { type: String },
       buttonLink: { type: String },
-      
+      fancy: { type: Boolean, reflect: true }
+
     };
   }
 }

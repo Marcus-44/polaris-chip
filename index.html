@@ -23,6 +23,12 @@
   <title>polaris-chip / my-card</title>
 </head>
 
+<style>
+  my-card[fancy] {
+    --my-card-fancy-bg: #24a9ca;
+  }
+</style>
+
 <body>
   <h1>polaris-chip</h1>
   <!-- this is going to do whatever the tag's defaults are -->
@@ -32,7 +38,7 @@
   <polaris-chip title="Grants and donations"></polaris-chip> -->
 
   <h1>my-card</h1>
-  <my-card title="USA" buttonLink="https://www.britannica.com/place/United-States"></my-card>
+  <my-card title="USA" buttonLink="https://www.britannica.com/place/United-States"> <p>The USA is a great country</p></my-card>
   <my-card title="South Korea" imageURL="https://cdn.britannica.com/49/1949-004-8818300C/Flag-South-Korea.jpg" 
   description="This is an image of the South Korean flag" buttonLink="https://www.britannica.com/place/South-Korea"></my-card>
   <my-card title="Brazil" imageURL="https://cdn.britannica.com/47/6847-004-7D668BB0/Flag-Brazil.jpg"
